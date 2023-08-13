@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django - blog</title>
+</head>
+<body>
+    <span>
+        <a href="{% url 'blog-home' %}">Home</a>
+    </span>
+    <span>
+        <a href="{% url 'blog-about' %}">About</a>
+    </span>
+    {% if user.is_authenticated %}
+    <span>
+        <a href="{% url 'profile' %}">{{user.username}}</a>
+    </span>
+    <span>
+        <a href="{% url 'logout' %}">Logout</a>
+    </span>
+    {% else %}
+    <span>
+        <a href="{% url 'login' %}">Login</a>
+    </span>
+    <span>
+        <a href="{% url 'register' %}">Register</a>
+    </span>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <span>{{message}}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %} {% endblock content %}
+</body>
+</html>

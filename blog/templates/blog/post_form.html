@@ -1,0 +1,13 @@
+{% extends "blog/layouts/main.html" %}
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Add new post</legend>
+                {{form.as_p}}
+            </fieldset>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+{% endblock content %}

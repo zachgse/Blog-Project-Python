@@ -1,0 +1,12 @@
+{% extends "blog/layouts/main.html" %}
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Delete</legend>
+            </fieldset>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{% endblock content %}

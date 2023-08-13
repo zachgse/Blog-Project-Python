@@ -1,0 +1,21 @@
+{% extends "blog/layouts/main.html" %}
+{% block content %}
+    <br><br>
+    {% if object.author == user %}
+        <div>
+            <span>
+                <a href="{% url 'post-update' object.id %}">
+                    <button>Edit</button>
+                </a>
+                <a href="{% url 'post-delete' object.id %}">
+                    <button>Delete</button>
+                </a>
+            </span>
+        </div>
+    {% endif %}
+    <br><br>
+    <img src="{{object.author.profile.image.url}}">
+    <h1>{{object.title}}</h1>
+    <h2>{{object.content}}</h2>
+    <p>{{object.author}} created at {{object.date_posted|date:"F d, Y"}}</p>
+{% endblock content %}
